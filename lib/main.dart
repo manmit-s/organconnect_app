@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-      home: HospitalDashboard(), // Use the LoginPage widget as the home
+      home: LoginPage(), // Use the LoginPage widget as the home
     );
   }
 }
