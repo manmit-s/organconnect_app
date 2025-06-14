@@ -38,6 +38,9 @@ class RecipientRequestsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Recipient Requests', style: TextStyle(color: Colors.white),),
         backgroundColor: const Color(0xffFF4C5B),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+        ),
         centerTitle: true,
       ),
       body: Padding(

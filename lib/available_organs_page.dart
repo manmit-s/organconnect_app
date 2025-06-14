@@ -27,8 +27,11 @@ class AvailableOrgansPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Available Organs'),
+        title: const Text('Available Organs', style: TextStyle(color: Colors.white),),
         backgroundColor: const Color(0xffFF4C5B),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+        ),
         centerTitle: true,
       ),
       body: Padding(

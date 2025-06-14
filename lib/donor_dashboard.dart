@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:organconnect_app/donor_donation_tracking_page.dart';
+import 'package:organconnect_app/donor_profile_page.dart';
+import 'package:organconnect_app/donor_notification.dart';
 
 class DonorDashboard extends StatelessWidget {
   const DonorDashboard({Key? key}) : super(key: key);
@@ -14,6 +16,9 @@ class DonorDashboard extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Donor Dashboard', style: TextStyle(color: Color(0xffFFFDF5)),),
         backgroundColor: const Color(0xffFF4C5B),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+        ),
         centerTitle: true,
       ),
       body: Padding(
@@ -45,7 +50,7 @@ class DonorDashboard extends StatelessWidget {
               title: 'Notifications',
               subtitle: 'View updates and alerts',
               onTap: () {
-                // Navigate to Notifications screen
+                Navigator.push(context, MaterialPageRoute(builder: (context) => DonorNotificationsPage()));
               },
             ),
             SizedBox(height: screenHeight * 0.03),
@@ -54,7 +59,7 @@ class DonorDashboard extends StatelessWidget {
               title: 'Profile Settings',
               subtitle: 'Update your details',
               onTap: () {
-                // Navigate to Profile Settings screen
+                Navigator.push(context, MaterialPageRoute(builder: (context) => DonorProfilePage()));
               },
             ),
           ],

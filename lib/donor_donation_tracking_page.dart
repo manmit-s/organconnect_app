@@ -32,6 +32,9 @@ class DonorTrackingPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('My Donations', style: TextStyle(color: Color(0xffFFFDF5)),),
         backgroundColor: const Color(0xffFF4C5B),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+        ),
         centerTitle: true,
       ),
       body: Padding(

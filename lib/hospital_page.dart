@@ -17,46 +17,44 @@ class _HospitalPageState extends State<HospitalPage> {
     final screenWidth = screenSize.width;
     final screenHeight = screenSize.height;
 
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: const Color(0xffFFFDF5),
-        appBar: AppBar(
-          title: Text(
-            "Hospital Registration",
-            style: TextStyle(color: Color(0xffFFFDF5)),
-          ),
-          centerTitle: true,
-          backgroundColor: Color(0xff682228),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
-          ),
+    return Scaffold(
+      backgroundColor: const Color(0xffFFFDF5),
+      appBar: AppBar(
+        title: Text(
+          "Hospital Registration",
+          style: TextStyle(color: Color(0xffFFFDF5)),
         ),
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: screenHeight * 0.05),
-                _buildTextFieldLabel("Hospital's Name", screenWidth),
-                _buildTextField(screenWidth, "Hospital Name"),
-                SizedBox(height: 12),
-                _buildAffiliationAndBloodGroup(screenWidth),
-                SizedBox(height: 12),
-                _buildTextFieldLabel("Organ to Receive", screenWidth),
-                _buildTextField(screenWidth, "Organ"),
-                SizedBox(height: 12),
-                _buildTextFieldLabel("Disease (if no, write NA)", screenWidth),
-                _buildTextField(screenWidth, "Disease"),
-                SizedBox(height: 12),
-                _buildTextFieldLabel("Live Location", screenWidth),
-                _buildTextField(screenWidth, "Location"),
-                SizedBox(height: 12),
-                _buildBloodDonationToggle(screenWidth), // Add the toggle switch here
-                SizedBox(height: 15),
-                _buildSubmitButton(context, screenWidth),
-              ],
-            ),
+        centerTitle: true,
+        backgroundColor: Color(0xffFF4C5B),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+        ),
+      ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: screenHeight * 0.05),
+              _buildTextFieldLabel("Hospital's Name", screenWidth),
+              _buildTextField(screenWidth, "Hospital Name"),
+              SizedBox(height: 12),
+              _buildAffiliationAndBloodGroup(screenWidth),
+              SizedBox(height: 12),
+              _buildTextFieldLabel("Organ to Receive", screenWidth),
+              _buildTextField(screenWidth, "Organ"),
+              SizedBox(height: 12),
+              _buildTextFieldLabel("Disease (if no, write NA)", screenWidth),
+              _buildTextField(screenWidth, "Disease"),
+              SizedBox(height: 12),
+              _buildTextFieldLabel("Live Location", screenWidth),
+              _buildTextField(screenWidth, "Location"),
+              SizedBox(height: 12),
+              _buildBloodDonationToggle(screenWidth), // Add the toggle switch here
+              SizedBox(height: 15),
+              _buildSubmitButton(context, screenWidth),
+            ],
           ),
         ),
       ),
