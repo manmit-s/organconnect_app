@@ -9,7 +9,7 @@ class HospitalPage extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
     final screenWidth = screenSize.width;
     final screenHeight = screenSize.height;
-s
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xffFFFDF5),
