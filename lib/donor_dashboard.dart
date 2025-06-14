@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:organconnect_app/donor_donation_tracking_page.dart';
 
 class DonorDashboard extends StatelessWidget {
   const DonorDashboard({Key? key}) : super(key: key);
@@ -35,7 +36,7 @@ class DonorDashboard extends StatelessWidget {
               title: 'My Donations',
               subtitle: 'View your donation history and status',
               onTap: () {
-                // Navigate to My Donations screen or any other relevant screen
+                Navigator.push(context, MaterialPageRoute(builder: (context) => DonorTrackingPage()));
               },
             ),
             SizedBox(height: screenHeight * 0.03),

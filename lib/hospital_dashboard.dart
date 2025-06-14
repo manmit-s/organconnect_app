@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:organconnect_app/available_organs_page.dart';
+import 'package:organconnect_app/recipient_req_page.dart';
 
 class HospitalDashboard extends StatelessWidget {
   const HospitalDashboard({Key? key}) : super(key: key);
@@ -46,7 +48,7 @@ class HospitalDashboard extends StatelessWidget {
               textColor: textColor,
               subtitleColor: subtitleColor,
               onTap: () {
-                // TODO: Add navigation or action
+                Navigator.push(context, MaterialPageRoute(builder: (context) => RecipientRequestsPage()));
               },
             ),
             SizedBox(height: screenHeight * 0.03),
@@ -59,7 +61,7 @@ class HospitalDashboard extends StatelessWidget {
               textColor: textColor,
               subtitleColor: subtitleColor,
               onTap: () {
-                // TODO: Add navigation or action
+                Navigator.push(context, MaterialPageRoute(builder: (context) => AvailableOrgansPage()));
               },
             ),
             SizedBox(height: screenHeight * 0.03),
