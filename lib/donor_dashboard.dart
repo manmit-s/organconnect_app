@@ -21,48 +21,50 @@ class DonorDashboard extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: EdgeInsets.all(screenWidth * 0.05),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              'Welcome, Donor!',
-              style: TextStyle(
-                fontSize: screenWidth * 0.08,
-                fontWeight: FontWeight.bold,
-                color: Color(0xffFF4C5B),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(screenWidth * 0.05),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                'Welcome, Donor!',
+                style: TextStyle(
+                  fontSize: screenWidth * 0.08,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffFF4C5B),
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: screenHeight * 0.05),
-            _DashboardCard(
-              icon: Icons.favorite,
-              title: 'My Donations',
-              subtitle: 'View your donation history and status',
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => DonorTrackingPage()));
-              },
-            ),
-            SizedBox(height: screenHeight * 0.03),
-            _DashboardCard(
-              icon: Icons.notifications,
-              title: 'Notifications',
-              subtitle: 'View updates and alerts',
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => DonorNotificationsPage()));
-              },
-            ),
-            SizedBox(height: screenHeight * 0.03),
-            _DashboardCard(
-              icon: Icons.settings,
-              title: 'Profile Settings',
-              subtitle: 'Update your details',
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => DonorProfilePage()));
-              },
-            ),
-          ],
+              SizedBox(height: screenHeight * 0.05),
+              _DashboardCard(
+                icon: Icons.favorite,
+                title: 'My Donations',
+                subtitle: 'View your donation history and status',
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => DonorTrackingPage()));
+                },
+              ),
+              SizedBox(height: screenHeight * 0.03),
+              _DashboardCard(
+                icon: Icons.notifications,
+                title: 'Notifications',
+                subtitle: 'View updates and alerts',
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => DonorNotificationsPage()));
+                },
+              ),
+              SizedBox(height: screenHeight * 0.03),
+              _DashboardCard(
+                icon: Icons.settings,
+                title: 'Profile Settings',
+                subtitle: 'Update your details',
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => DonorProfilePage()));
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

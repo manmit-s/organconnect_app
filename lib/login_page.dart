@@ -12,10 +12,10 @@ class LoginPage extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
     final screenWidth = screenSize.width;
 
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: const Color(0xffFFFDF5),
-        body: Center(
+    return Scaffold(
+      backgroundColor: const Color(0xffFFFDF5),
+      body: Center(
+        child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05), // 5% padding
             child: Column(

@@ -9,23 +9,21 @@ class WhoAreYou extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
     final screenWidth = screenSize.width;
 
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: const Color(0xffFFFDF5),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(height: 50),
-              Text(
-                "Who Are You?",
-                style: title),
-              SizedBox(height: 80),
-              _buildRoleButton(context, "I'm a Donor", "assets/images/person.png", DonorPage()),
-              SizedBox(height: 40),
-              _buildRoleButton(context, "I'm a Hospital", "assets/images/hospital.png", HospitalPage()),
-            ],
-          ),
+    return Scaffold(
+      backgroundColor: const Color(0xffFFFDF5),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(height: 130),
+            Text(
+              "Who Are You?",
+              style: title),
+            SizedBox(height: 80),
+            _buildRoleButton(context, "I'm a Donor", "assets/images/person.png", DonorPage()),
+            SizedBox(height: 40),
+            _buildRoleButton(context, "I'm a Hospital", "assets/images/hospital.png", HospitalPage()),
+          ],
         ),
       ),
     );
