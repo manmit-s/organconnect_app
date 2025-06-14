@@ -62,8 +62,8 @@ A squad of 4 *rockstar* developers from [TUTEDUDE's BUILDATHON]:
 
 -   Manmit Samal (GitHub: https://github.com/manmit-s)
 -   Anubhav Dubey (GitHub: https://github.com/Anubhav-Dubey)
--   [Team Member 3] (GitHub: *Add link later*)
--   [Team Member 4] (GitHub: *Add link later*)
+-   Anurag Harne (GitHub: https://github.com/Anuragharne)
+-   Swastik Shrivastav (GitHub: *Add link later*)
 
 📋 How to Run the Demo
 ----------------------
