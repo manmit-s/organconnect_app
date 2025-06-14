@@ -60,8 +60,8 @@ Our demo is a *solid shuruaat*, with a functional UI ready for testing. We're hu
 
 A squad of 4 *rockstar* developers from [TUTEDUDE's BUILDATHON]:
 
--   [Team Member 1] (GitHub: *Add link later*)
--   [Team Member 2] (GitHub: *Add link later*)
+-   Manmit Samal (GitHub: https://github.com/manmit-s)
+-   Anubhav Dubey (GitHub: https://github.com/Anubhav-Dubey)
 -   [Team Member 3] (GitHub: *Add link later*)
 -   [Team Member 4] (GitHub: *Add link later*)
 
