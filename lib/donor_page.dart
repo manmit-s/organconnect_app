@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:organconnect_app/components/components.dart';
+import 'package:organconnect_app/donor_dashboard.dart';
 import 'package:organconnect_app/status_page.dart';
 import 'components/bloodgroup_component.dart';
 
@@ -104,7 +105,7 @@ class DonorPage extends StatelessWidget {
       padding: EdgeInsets.only(left: screenWidth * 0.5),
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => StatusPage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => DonorDashboard()));
         },
         style: ElevatedButton.styleFrom(
           minimumSize: const Size(170, 60),

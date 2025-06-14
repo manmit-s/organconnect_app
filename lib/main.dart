@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import "package:organconnect_app/donor_dashboard.dart";
+import "package:organconnect_app/hospital_dashboard.dart";
 import "login_page.dart";// Import the new login page
 
 void main() {
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-      home: LoginPage(), // Use the LoginPage widget as the home
+      home: HospitalDashboard(), // Use the LoginPage widget as the home
     );
   }
 }
