@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:organconnect_app/components/components.dart';
 import 'package:organconnect_app/donor_dashboard.dart';
-import 'package:organconnect_app/status_page.dart';
 import 'components/bloodgroup_component.dart';
 
-class DonorPage extends StatelessWidget {
+class DonorPage extends StatefulWidget {
+  @override
+  _DonorPageState createState() => _DonorPageState();
+}
+
+class _DonorPageState extends State<DonorPage> {
+  bool _wantsToDonateBlood = false; // State variable for the toggle switch
+
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
@@ -45,6 +51,8 @@ class DonorPage extends StatelessWidget {
                 SizedBox(height: 12),
                 _buildTextFieldLabel("Live Location", screenWidth),
                 _buildTextField(screenWidth, "Location"),
+                SizedBox(height: 12),
+                _buildBloodDonationToggle(screenWidth), // Add the toggle switch here
                 SizedBox(height: 15),
                 _buildSubmitButton(context, screenWidth),
               ],
@@ -95,6 +103,27 @@ class DonorPage extends StatelessWidget {
               BloodGroupDropdown(), // Use the BloodGroupDropdown widget here
             ],
           ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildBloodDonationToggle(double screenWidth) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          "Willing to Donate Blood?",
+          style: TextStyle(fontSize: screenWidth * 0.04),
+        ),
+        Switch(
+          value: _wantsToDonateBlood,
+          onChanged: (value) {
+            setState(() {
+              _wantsToDonateBlood = value; // Update the state
+            });
+          },
+          activeColor: Color(0xffFF4C5B), // Customize the active color
         ),
       ],
     );

@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:organconnect_app/donor_page.dart";
 import "package:organconnect_app/hospital_page.dart";
+import "package:organconnect_app/styles.dart";
 
 class WhoAreYou extends StatelessWidget {
   @override
@@ -10,26 +11,15 @@ class WhoAreYou extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xffFFA4A7),
+        backgroundColor: const Color(0xffFFFDF5),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 100),
+              SizedBox(height: 50),
               Text(
                 "Who Are You?",
-                style: TextStyle(
-                  color: Color(0xffFF4C5B),
-                  fontSize: screenWidth * 0.1, // 10% of screen width
-                  fontWeight: FontWeight.bold,
-                  shadows: [
-                    Shadow(
-                      color: Colors.grey,
-                      blurRadius: 4.0,
-                    ),
-                  ],
-                ),
-              ),
+                style: title),
               SizedBox(height: 80),
               _buildRoleButton(context, "I'm a Donor", "assets/images/person.png", DonorPage()),
               SizedBox(height: 40),
@@ -50,7 +40,7 @@ class WhoAreYou extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           border: Border.all(color: Color(0xffFF4C5B), width: 4),
-          color: Color(0xffFFE2E3),
+          color: Color(0xffffeced),
         ),
         width: 300,
         height: 200,

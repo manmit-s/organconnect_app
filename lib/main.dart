@@ -1,6 +1,4 @@
 import "package:flutter/material.dart";
-import "package:organconnect_app/donor_dashboard.dart";
-import "package:organconnect_app/hospital_dashboard.dart";
 import "login_page.dart";// Import the new login page
 
 void main() {
