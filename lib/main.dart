@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "package:organconnect_app/who_are_you.dart";
 import "login_page.dart";// Import the new login page
 
 void main() {
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-      home: WhoAreYou(), // Use the LoginPage widget as the home
+      home: LoginPage(), // Use the LoginPage widget as the home
     );
   }
 }
