@@ -122,9 +122,21 @@ class LoginPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    _buildSocialButton('assets/images/google_logo.png', () {}),
+                    _buildSocialButton('assets/images/google_logo.png', () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("Server busy!"),
+                          backgroundColor: Colors.redAccent,
+                        ),);
+                    },),
                     SizedBox(width: 30),
-                    _buildSocialButton('assets/images/adhaar_logo.png', () {}),
+                    _buildSocialButton('assets/images/adhaar_logo.png', () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("Government Authentication not available!"),
+                          backgroundColor: Colors.redAccent,
+                        ),);
+                    }),
                   ],
                 ),
               ],
