@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:organconnect_app/components/user_session_info.dart";
+import "package:organconnect_app/forgot_pass_page.dart";
 import "package:organconnect_app/styles.dart";
 import "package:organconnect_app/who_are_you.dart";
 import "components/components.dart";
@@ -49,11 +50,16 @@ class LoginPage extends StatelessWidget {
                 SizedBox(height: 10),
                 Align(
                   alignment: Alignment.centerRight,
-                  child: Text(
-                    "Forgot password?",
-                    style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontWeight: FontWeight.w400,
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordPage()));
+                    },
+                    child: Text(
+                      "Forgot password?",
+                      style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                 ),
