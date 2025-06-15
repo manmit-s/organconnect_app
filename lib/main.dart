@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-      home: LoginPage(), // Use the LoginPage widget as the home
+      home: WhoAreYou(), // Use the LoginPage widget as the home
     );
   }
 }

@@ -153,10 +153,19 @@ class _DonorPageState extends State<DonorPage> {
           String location = locationController.text;
 
           //save these values
+          bool isValidNum = int.tryParse(age) != null;
+
           if(name.isEmpty || age.isEmpty || organ.isEmpty || disease.isEmpty || location.isEmpty){
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text("Please fill all the blanks!"),
+                backgroundColor: Colors.redAccent,
+              ),);
+          }
+          else if(!isValidNum){
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text("Please enter a valid age!"),
                 backgroundColor: Colors.redAccent,
               ),);
           }

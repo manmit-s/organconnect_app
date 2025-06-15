@@ -152,10 +152,19 @@ class _HospitalPageState extends State<HospitalPage> {
           String disease = diseaseController.text;
           String location = locationController.text;
 
+          bool isValidNum = int.tryParse(affiliationCode) != null;
+
           if(hospitalName.isEmpty || affiliationCode.isEmpty || organ.isEmpty || disease.isEmpty || location.isEmpty){
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text("Please fill all the blanks!"),
+                backgroundColor: Colors.redAccent,
+              ),);
+          }
+          else if(!isValidNum){
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text("Please enter a valid code!"),
                 backgroundColor: Colors.redAccent,
               ),);
           }
