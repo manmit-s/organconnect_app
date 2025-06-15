@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:organconnect_app/components/components.dart';
+import 'package:organconnect_app/components/user_session_info.dart';
 import 'package:organconnect_app/hospital_dashboard.dart';
 import 'components/bloodgroup_component.dart';
 
@@ -10,6 +11,13 @@ class HospitalPage extends StatefulWidget {
 
 class _HospitalPageState extends State<HospitalPage> {
   bool _wantsToReceiveBlood = false; // State variable for the toggle switch
+
+  // Controllers for each text field
+  final TextEditingController hospitalNameController = TextEditingController();
+  final TextEditingController affiliationCodeController = TextEditingController();
+  final TextEditingController organController = TextEditingController();
+  final TextEditingController diseaseController = TextEditingController();
+  final TextEditingController locationController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,18 +46,18 @@ class _HospitalPageState extends State<HospitalPage> {
             children: [
               SizedBox(height: screenHeight * 0.05),
               _buildTextFieldLabel("Hospital's Name", screenWidth),
-              _buildTextField(screenWidth, "Hospital Name"),
+              _buildTextField(screenWidth, "Hospital Name", hospitalNameController),
               SizedBox(height: 12),
               _buildAffiliationAndBloodGroup(screenWidth),
               SizedBox(height: 12),
               _buildTextFieldLabel("Organ to Receive", screenWidth),
-              _buildTextField(screenWidth, "Organ"),
+              _buildTextField(screenWidth, "Organ", organController),
               SizedBox(height: 12),
               _buildTextFieldLabel("Disease (if no, write NA)", screenWidth),
-              _buildTextField(screenWidth, "Disease"),
+              _buildTextField(screenWidth, "Disease", diseaseController),
               SizedBox(height: 12),
               _buildTextFieldLabel("Live Location", screenWidth),
-              _buildTextField(screenWidth, "Location"),
+              _buildTextField(screenWidth, "Location", locationController),
               SizedBox(height: 12),
               _buildBloodDonationToggle(screenWidth), // Add the toggle switch here
               SizedBox(height: 15),
@@ -71,11 +79,17 @@ class _HospitalPageState extends State<HospitalPage> {
     );
   }
 
-  Widget _buildTextField(double screenWidth, String hintText) {
+  Widget _buildTextField(double screenWidth, String hintText, TextEditingController controller) {
     return Center(
       child: SizedBox(
         width: screenWidth * 0.9,
-        child: MyTextField(hintText: hintText, obscureText: false, width: screenWidth * 0.9),
+        child: MyTextField(
+          hintText: hintText,
+          obscureText: false,
+          width: screenWidth * 0.9,
+          readOnly: false,
+          controller: controller, // Pass the specific controller here
+        ),
       ),
     );
   }
@@ -88,7 +102,7 @@ class _HospitalPageState extends State<HospitalPage> {
             children: [
               _buildTextFieldLabel("Affiliation Code", screenWidth),
               SizedBox(height: 8),
-              _buildTextField(screenWidth, "Code"),
+              _buildTextField(screenWidth, "Code", affiliationCodeController), // Use the affiliation code controller
             ],
           ),
         ),
@@ -132,7 +146,29 @@ class _HospitalPageState extends State<HospitalPage> {
       padding: EdgeInsets.only(left: screenWidth * 0.5),
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => HospitalDashboard()));
+          String hospitalName = hospitalNameController.text;
+          String affiliationCode = affiliationCodeController.text;
+          String organ = organController.text;
+          String disease = diseaseController.text;
+          String location = locationController.text;
+
+          if(hospitalName.isEmpty || affiliationCode.isEmpty || organ.isEmpty || disease.isEmpty || location.isEmpty){
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text("Please fill all the blanks!"),
+                backgroundColor: Colors.redAccent,
+              ),);
+          }
+          else{
+            UserSession.setName(hospitalName);
+            UserSession.setAffiliationCode(affiliationCode);
+            UserSession.setOrgan(organ);
+            UserSession.setDisease(disease);
+            UserSession.setLocation(location);
+
+            Navigator.push(context, MaterialPageRoute(builder: (context) => HospitalDashboard()));
+          }
+
         },
         style: ElevatedButton.styleFrom(
           minimumSize: const Size(170, 60),

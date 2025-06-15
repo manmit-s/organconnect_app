@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:organconnect_app/components/components.dart';
+import 'package:organconnect_app/components/user_session_info.dart';
 import 'package:organconnect_app/donor_dashboard.dart';
 import 'components/bloodgroup_component.dart';
 
@@ -10,6 +11,13 @@ class DonorPage extends StatefulWidget {
 
 class _DonorPageState extends State<DonorPage> {
   bool _wantsToDonateBlood = false; // State variable for the toggle switch
+
+  // Controllers for each text field
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController ageController = TextEditingController();
+  final TextEditingController organController = TextEditingController();
+  final TextEditingController diseaseController = TextEditingController();
+  final TextEditingController locationController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,18 +46,18 @@ class _DonorPageState extends State<DonorPage> {
             children: [
               SizedBox(height: screenHeight * 0.05),
               _buildTextFieldLabel("Enter Your Name", screenWidth),
-              _buildTextField(screenWidth, "Name"),
+              _buildTextField(screenWidth, "Name", nameController),
               SizedBox(height: 12),
               _buildAgeAndBloodGroup(screenWidth),
               SizedBox(height: 12),
               _buildTextFieldLabel("Organ to Donate", screenWidth),
-              _buildTextField(screenWidth, "Organ"),
+              _buildTextField(screenWidth, "Organ", organController),
               SizedBox(height: 12),
               _buildTextFieldLabel("Disease (if no, write NA)", screenWidth),
-              _buildTextField(screenWidth, "Disease"),
+              _buildTextField(screenWidth, "Disease", diseaseController),
               SizedBox(height: 12),
               _buildTextFieldLabel("Live Location", screenWidth),
-              _buildTextField(screenWidth, "Location"),
+              _buildTextField(screenWidth, "Location", locationController),
               SizedBox(height: 12),
               _buildBloodDonationToggle(screenWidth), // Add the toggle switch here
               SizedBox(height: 15),
@@ -71,11 +79,17 @@ class _DonorPageState extends State<DonorPage> {
     );
   }
 
-  Widget _buildTextField(double screenWidth, String hintText) {
+  Widget _buildTextField(double screenWidth, String hintText, TextEditingController controller) {
     return Center(
       child: SizedBox(
         width: screenWidth * 0.9,
-        child: MyTextField(hintText: hintText, obscureText: false, width: screenWidth * 0.9),
+        child: MyTextField(
+          hintText: hintText,
+          obscureText: false,
+          width: screenWidth * 0.9,
+          readOnly: false,
+          controller: controller, // Pass the specific controller here
+        ),
       ),
     );
   }
@@ -88,7 +102,7 @@ class _DonorPageState extends State<DonorPage> {
             children: [
               _buildTextFieldLabel("Enter Your Age", screenWidth),
               SizedBox(height: 8),
-              _buildTextField(screenWidth, "Age"),
+              _buildTextField(screenWidth, "Age", ageController), // Use the age controller
             ],
           ),
         ),
@@ -132,7 +146,29 @@ class _DonorPageState extends State<DonorPage> {
       padding: EdgeInsets.only(left: screenWidth * 0.5),
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => DonorDashboard()));
+          String name = nameController.text;
+          String age = ageController.text;
+          String organ = organController.text;
+          String disease = diseaseController.text;
+          String location = locationController.text;
+
+          //save these values
+          if(name.isEmpty || age.isEmpty || organ.isEmpty || disease.isEmpty || location.isEmpty){
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text("Please fill all the blanks!"),
+                backgroundColor: Colors.redAccent,
+              ),);
+          }
+          else{
+            UserSession.setName(name);
+            UserSession.setAge(age);
+            UserSession.setOrgan(organ);
+            UserSession.setDisease(disease);
+            UserSession.setLocation(location);
+
+            Navigator.push(context, MaterialPageRoute(builder: (context) => DonorDashboard()));
+          }
         },
         style: ElevatedButton.styleFrom(
           minimumSize: const Size(170, 60),

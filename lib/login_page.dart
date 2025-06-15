@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:organconnect_app/components/user_session_info.dart";
 import "package:organconnect_app/styles.dart";
 import "package:organconnect_app/who_are_you.dart";
 import "components/components.dart";
@@ -22,7 +23,7 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "ORGANCONNECT",
+                  "WELCOME",
                   style: TextStyle(
                     color: Color(0xffFF4C5B),
                     fontSize: screenWidth * 0.1, // 10% of screen width
@@ -36,14 +37,14 @@ class LoginPage extends StatelessWidget {
                   controller: emailController,
                   hintText: "Email",
                   obscureText: false,
-                  width: screenWidth * 0.9, // 90% of screen width
+                  width: screenWidth * 0.9, readOnly: false, // 90% of screen width
                 ),
                 SizedBox(height: 20),
                 MyTextField(
                   controller: passwordController,
                   hintText: "Password",
                   obscureText: true,
-                  width: screenWidth * 0.9, // 90% of screen width
+                  width: screenWidth * 0.9, readOnly: false, // 90% of screen width
                 ),
                 SizedBox(height: 10),
                 Align(
@@ -83,6 +84,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       );
                     } else {
+                      UserSession.setEmail(email);
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => WhoAreYou()),
