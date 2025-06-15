@@ -11,19 +11,21 @@ class WhoAreYou extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: const Color(0xffFFFDF5),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(height: 130),
-            Text(
-              "Who Are You?",
-              style: title),
-            SizedBox(height: 80),
-            _buildRoleButton(context, "I'm a Donor", "assets/images/person.png", DonorPage()),
-            SizedBox(height: 40),
-            _buildRoleButton(context, "I'm a Hospital", "assets/images/hospital.png", HospitalPage()),
-          ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(height: 130),
+              Text(
+                "Who Are You?",
+                style: title),
+              SizedBox(height: 80),
+              _buildRoleButton(context, "I'm a Donor", "assets/images/person.png", DonorPage()),
+              SizedBox(height: 40),
+              _buildRoleButton(context, "I'm a Hospital", "assets/images/hospital.png", HospitalPage()),
+            ],
+          ),
         ),
       ),
     );

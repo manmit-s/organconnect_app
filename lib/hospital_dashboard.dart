@@ -15,20 +15,23 @@ class HospitalDashboard extends StatelessWidget {
     final backgroundColor = const Color(0xffFFFDF5);
     final cardBackground = const Color(0xffFFE2E3);
     final iconColor = primaryColor;
-    final textColor = Color(0xff2D2D2D);
+    final textColor = const Color(0xff2D2D2D);
     final subtitleColor = Colors.grey[700];
 
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
-        title: Text('Hospital Dashboard', style: TextStyle(color: backgroundColor),),
+        title: Text(
+          'Hospital Dashboard',
+          style: TextStyle(color: backgroundColor),
+        ),
         backgroundColor: primaryColor,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
         ),
         centerTitle: true,
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: EdgeInsets.all(screenWidth * 0.05),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -52,7 +55,11 @@ class HospitalDashboard extends StatelessWidget {
               textColor: textColor,
               subtitleColor: subtitleColor,
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => RecipientRequestsPage()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => RecipientRequestsPage()),
+                );
               },
             ),
             SizedBox(height: screenHeight * 0.03),
@@ -65,7 +72,11 @@ class HospitalDashboard extends StatelessWidget {
               textColor: textColor,
               subtitleColor: subtitleColor,
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => AvailableOrgansPage()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => AvailableOrgansPage()),
+                );
               },
             ),
             SizedBox(height: screenHeight * 0.03),
@@ -78,7 +89,11 @@ class HospitalDashboard extends StatelessWidget {
               textColor: textColor,
               subtitleColor: subtitleColor,
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => HospitalProfilePage()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => HospitalProfilePage()),
+                );
               },
             ),
           ],
