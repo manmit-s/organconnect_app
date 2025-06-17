@@ -67,7 +67,7 @@ A squad of 4 *rockstar* developers from [TUTEDUDE's BUILDATHON]:
 -   Manmit Samal (GitHub: https://github.com/manmit-s)
 -   Anubhav Dubey (GitHub: https://github.com/Anubhav-Dubey)
 -   Anurag Harne (GitHub: https://github.com/Anuragharne)
--   Swastik Shrivastav (GitHub: https://github.com/psmorph)
+-   Swastik Shrivastava (GitHub: https://github.com/psmorph)
 
 📋 How to Run the Demo
 ----------------------
