@@ -43,6 +43,10 @@ OrganConnect tackles these challenges by simplifying the donation process, educa
 -   **Database** (Planned): MongoDB or Firebase Firestore for secure storage.
 -   **Tools**: Git for version control, Figma for UI design.
 
+🎨 App Design
+----------------
+![Organ Connect Figma Design](https://i.postimg.cc/rmyF93C6/Organ-Connect-Figma.png "Organ Connect UI Design on Figma")
+
 📈 Why OrganConnect?
 --------------------
 
