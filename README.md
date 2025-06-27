@@ -86,4 +86,4 @@ We'd love your feedback and contributions! Fork the repo, raise issues, or sugge
 📢 Shoutout
 -----------
 
-Built with 💖 for **BUILDATHON by TUTEDUDE**. Let's make organ donation as simple as ordering *chai* online! *Chalo, judges, taiyaar ho jao!*
+Built with 💖 for **BUILDATHON by TUTEDUDE**. Let's make organ donation as simple as ordering *chai* online!
